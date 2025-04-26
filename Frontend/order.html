@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 text-gray-900 min-h-screen flex items-center justify-center py-10">
+
+  <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-6">Order Details</h2>
+
+    <form id="orderForm" class="space-y-6">
+      <!-- User Info -->
+      <div>
+        <label class="block mb-1 font-medium" for="name">Full Name</label>
+        <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded-md p-2" />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium" for="email">Email</label>
+        <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded-md p-2" />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium" for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 rounded-md p-2" />
+      </div>
+
+      <!-- Address Info -->
+      <div>
+        <label class="block mb-1 font-medium" for="address">Shipping Address</label>
+        <textarea id="address" name="address" rows="3" required class="w-full border border-gray-300 rounded-md p-2"></textarea>
+      </div>
+
+      <div class="flex gap-4">
+        <div class="w-1/2">
+          <label class="block mb-1 font-medium" for="city">City</label>
+          <input type="text" id="city" name="city" required class="w-full border border-gray-300 rounded-md p-2" />
+        </div>
+        <div class="w-1/2">
+          <label class="block mb-1 font-medium" for="pincode">Pincode</label>
+          <input type="text" id="pincode" name="pincode" required class="w-full border border-gray-300 rounded-md p-2" />
+        </div>
+      </div>
+
+      <!-- Product Selection -->
+      <div>
+        <label class="block mb-1 font-medium" for="product">Select Product</label>
+        <select id="product" name="product" required class="w-full border border-gray-300 rounded-md p-2">
+          <option value="sunscreen">Sunscreen - ₹719</option>
+          <option value="moisturizer">Moisturizer - ₹599</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-semibold shadow-md">
+        Proceed to Payment
+      </button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      console.log('Order Data:', data);
+
+      // Here you'd send this data to the backend using fetch or axios
+      // Example:
+      // fetch('/api/create-order', { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json'} })
+    });
+  </script>
+</body>
+</html>

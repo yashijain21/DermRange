@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunscreen Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Add Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <style>
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-slide {
+            min-width: 100%;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-btn:hover {
+            background: white;
+        }
+
+        .slider-prev {
+            left: 20px;
+        }
+
+        .slider-next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background: white;
+        }
+    </style>
+</head>
+
+<body class="bg-[#f2f7f6] text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center px-6 py-2 bg-blue-200 text-black shadow-sm">
+        <!-- Logo -->
+        <div>
+          <img src="./logo (2).png" alt="Logo" class="h-16 w-16 object-contain" />
+        </div>
+      
+        <!-- Social Media Icons -->
+        <div class="flex space-x-4 text-lg">
+          <a href="https://www.instagram.com/dermrange/" target="_blank" class="hover:text-blue-700" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://m.facebook.com/61564295263793/" target="_blank" class="hover:text-blue-700" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+        </div>
+      </header>
+      
+
+    <!-- Hero Section -->
+
+    <div class="slider-container relative">
+        <div class="slider-track">
+            <!-- Slide 1 - Sunscreen -->
+            <div class="slider-slide  ">
+                <main class="flex justify-center items-center  bg-cover bg-center bg-no-repeat h-[598px]"
+                    style="background-image: url('./banner1.png');  ">
+                    <div
+                        class="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full h-full px-10 py-20">
+                        <!-- Text -->
+                        <div>
+                            <h2 class="text-sm text-white uppercase tracking-wide">SPF 50+ Broad Spectrum</h2>
+                            <h1 class="text-4xl md:text-5xl font-bold text-white mt-2">Shield Your Skin.<br>Glow with
+                                Confidence.</h1>
+                            <p class="text-white mt-4 text-sm leading-relaxed">
+                                Our dermatologist-tested sunscreen provides superior sun protection while nourishing
+                                your skin. Lightweight, non-greasy, and perfect for all skin types.
+                            </p>
+                            <a href="../Frontend/Sunscreen_detail.html">
+                                <button
+                                    class="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-semibold shadow-md">
+                                    Buy Now – Rs.799
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+
+
+            <!-- Slide 2 - Moisturizer -->
+            <div class="slider-slide  ">
+                <main class="flex justify-center items-center   bg-cover bg-center bg-no-repeat h-[598px]"
+                    style="background-image: url('./banner2.png');  ">
+                    <div
+                        class="max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full h-full px-10 py-20">
+                        <div>
+                            <h2 class="text-sm text-blue-900 uppercase tracking-wide">Daily Hydration Formula</h2>
+                            <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mt-2">Hydrate. Nourish. Glow.</h1>
+                            <p class="text-blue-900 mt-4 text-sm leading-relaxed">
+                                Our ultra-hydrating moisturizer locks in moisture for 24 hours, leaving your skin
+                                feeling soft, smooth, and rejuvenated. Great for sensitive skin.
+                            </p>
+                            <a href="./Moisterizer_detail.html">
+                                <button
+                                class="mt-6 bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-semibold shadow-md">
+                                Buy Now – Rs.499
+                            </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="slider-btn slider-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <button class="slider-btn slider-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+
+        <!-- Dots Indicator -->
+        <div class="slider-dots">
+            <div class="slider-dot active" data-index="0"></div>
+            <div class="slider-dot" data-index="1"></div>
+        </div>
+    </div>
+
+    <!-- Image Gallery Section -->
+    <section class="py-16 bg-[#e7f0ed] px-10">
+        <h2 class="text-3xl font-bold text-center mb-10">See It In Action</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <img src="./sunscreenq 1.png" alt="sunscreen1" class="rounded-lg shadow-md ">
+            <img src="./2.png" alt="sunscreen2"
+                class="rounded-lg shadow-md ">
+            <img src="https://m.media-amazon.com/images/I/71J-GeTIo5L._SY879_.jpg" alt="sunscreen3" class="rounded-lg shadow-md h-[405px] w-[405px]">
+        </div>
+   
+        <div class="grid grid-cols-1 mt-5 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <img src="https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg" alt="sunscreen1" class="rounded-lg shadow-md ">
+            <img src="https://m.media-amazon.com/images/I/51djjWVDMoL._SX679_.jpg" alt="sunscreen2"
+                class="rounded-lg shadow-md ">
+            <img src="https://m.media-amazon.com/images/I/51M-WQzV+bL._SX679_.jpg" alt="sunscreen3" class="rounded-lg shadow-md ">
+        </div>
+    </section>
+  <!-- Enhanced Key Ingredients Section -->
+  <section class="bg-gray-100 px-6 py-10 md:px-16 lg:px-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Product Information</h2>
+  
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Moisturizer Box -->
+        <div class="bg-blue-100/30 border border-blue-300 shadow-md rounded-xl p-6 backdrop-blur-md">
+          <h3 class="text-2xl font-semibold text-blue-700 mb-4">DermRange Moisturizer</h3>
+  
+          <!-- Ingredients -->
+          <div class="mb-4">
+            <h4 class="text-lg font-medium text-gray-700 mb-2">Ingredients</h4>
+            <p class="text-gray-700 text-sm">
+              
+Stearate (and) PEG-100 Stearate, Dimethicone, CCTG, Propylene Glycol, Glyceryl MonoStearate, Glycerin, Octyldodecanol, Phenoxyethanol, Ammonium Polyacryloyldimethyl Taurate, Allantoin, Tocopheryl Acetate, Polysorbate 80, Water & laminaria digitata extract & hydrogenated lecithin & cetyl-PG hydroxyethyl palmitamide & ceramide EOP & ceramide NS/ceramide NG & ceramide NP & ceramide AS & ceramide AP & cholesterol & 1,2-hexanediol, Fragrance
+
+            </p>
+          </div>
+  
+          <!-- Directions -->
+          <div class="mb-4">
+            <h4 class="text-lg font-medium text-gray-700 mb-2">Directions for Use</h4>
+            <ol class="list-decimal list-inside text-sm text-gray-700 space-y-1">
+              <li>Apply a small amount evenly to cleansed face and neck.</li>
+              <li>Use in the morning and evening for best results.</li>
+              <li>Follow with sunscreen during the daytime.</li>
+              <li>Store in a cool, dry place, away from direct sunlight.</li>
+            </ol>
+          </div>
+  
+          <!-- Caution -->
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-3 text-sm text-gray-700">
+            <p class="font-semibold">Caution:</p>
+            <ul class="list-disc list-inside mt-1 space-y-1">
+              <li>Avoid contact with eyes.</li>
+              <li>Discontinue use if irritation occurs.</li>
+              <li>Store in a cool, dry place. For external use only.</li>
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Sunscreen Box -->
+        <div class="bg-yellow-100/30 border border-yellow-300 shadow-md rounded-xl p-6 backdrop-blur-md">
+          <h3 class="text-2xl font-semibold text-yellow-700 mb-4">DermRange H2O Sunscreen</h3>
+  
+          <!-- Ingredients -->
+          <div class="mb-4">
+            <h4 class="text-lg font-medium text-gray-700 mb-2">Ingredients</h4>
+            <p class="text-gray-700 text-sm">
+              Ethylhexyl Methoxycinnamate, Titanium Dioxide, Zinc Oxide, Glycerin, Butyl Methoxydibenzoylmethane, 
+              Caprylic Acid, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Niacinamide, Butylene Glycol, 
+              Stearyl Stearate, Octocrylene, Hyaluronic Acid, Sunflower Seed Oil, Vitamin E, Allantoin, 
+              Centella Asiatica Extract, Physalis Extract, Sodium Benzoate, Vitamin C, Phenoxyethanol, Melanin.
+            </p>
+          </div>
+  
+          <!-- Directions -->
+          <div class="mb-4">
+            <h4 class="text-lg font-medium text-gray-700 mb-2">Directions for Use</h4>
+            <ol class="list-decimal list-inside text-sm text-gray-700 space-y-1">
+              <li>Squeeze two lines on index and middle fingers.</li>
+              <li>Apply liberally on face 15 minutes before sun exposure.</li>
+              <li>Reapply every 2 hours, especially after swimming or sweating.</li>
+            </ol>
+          </div>
+  
+          <!-- Caution -->
+          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 text-sm text-gray-700">
+            <p class="font-semibold">Caution:</p>
+            <ul class="list-disc list-inside mt-1 space-y-1">
+              <li>Avoid contact with eyes.</li>
+              <li>Discontinue use if irritation occurs.</li>
+              <li>Store in a cool, dry place. For external use only.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+
+  
+
+    <!-- Reviews Section -->
+    <section class="py-16 bg-[#f9fafb] px-10">
+        <h2 class="text-3xl font-bold text-center mb-6">What Our Customers Say</h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm text-gray-700">
+            <div class="bg-white p-4 rounded-lg shadow">
+                ⭐⭐⭐⭐⭐<br>
+                “My skin feels amazing and protected all day. Love the scent too!”<br><span class="italic">–
+                    Priya</span>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                ⭐⭐⭐⭐⭐<br>
+                “Finally a sunscreen that doesn't leave a white cast. Perfect for daily use.”<br><span class="italic">–
+                    Arjun</span>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                ⭐⭐⭐⭐⭐<br>
+                “Lightweight and great under makeup. It's my go-to every morning!”<br><span class="italic">– Neha</span>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gradient-to-b from-gray-50 to-white py-16 px-6 md:px-12 lg:px-24">
+      <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-3xl p-10 md:p-16 space-y-10">
+        <h2 class="text-4xl font-bold text-center text-gray-800">Privacy Policy</h2>
+        
+        <div class="space-y-8">
+          <p class="text-gray-600 text-lg leading-relaxed text-center max-w-3xl mx-auto">
+            We value your trust. This Privacy Policy describes how we collect, use, and safeguard your personal information to serve you better.
+          </p>
+    
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">1. Information We Collect</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We collect personal data like your name, email address, phone number, and payment information. We may also collect technical information such as your IP address, browser type, and device data.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">2. How We Use Your Information</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                Your information is used to provide and improve our services, process orders, communicate updates, and personalize your experience. We do not sell or rent your personal information.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">3. Cookies and Tracking</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We use cookies and similar technologies to enhance your user experience and analyze website usage. You can manage your cookie preferences through your browser settings.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">4. Data Security</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We implement robust security measures to protect your data. However, no method of electronic transmission or storage is 100% secure.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">5. Your Rights</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                You can request to access, update, or delete your personal data. Contact us anytime at <a href="mailto:jay@genesisvirtue.com" class="text-blue-600 underline hover:text-blue-800">jay@genesisvirtue.com</a>.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">6. Updates to This Policy</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                We may revise this Privacy Policy from time to time. The updated version will be posted on our website with the revised effective date.
+              </p>
+            </div>
+    
+            <div class="border-t pt-6">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-2">7. Contact Us</h3>
+              <p class="text-gray-600 text-base leading-relaxed">
+                If you have any questions about this Privacy Policy or our data practices, please contact us at <a href="mailto:jay@genesisvirtue.com" class="text-blue-600 underline hover:text-blue-800">jay@genesisvirtue.com</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Footer CTA -->
+    <footer class="bg-blue-200 text-gray-800 py-8 px-6 mt-10">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 items-center">
+      
+          <!-- Social Media -->
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
+            <div class="flex space-x-4 text-xl">
+              <a href="https://www.instagram.com/dermrange/" class="hover:text-blue-600" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://m.facebook.com/61564295263793/" class="hover:text-blue-600" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              
+            </div>
+          </div>
+      
+          <!-- Contact Info -->
+          <div class="text-sm">
+            <h3 class="text-lg font-semibold mb-2">Contact Us</h3>
+            <p><i class="fas fa-phone-alt mr-2"></i>+91 7706030003</p>
+            <p><i class="fas fa-envelope mr-2"></i>jay@genesisvirtue.com</p>
+          </div>
+      
+          <!-- CTA Buttons -->
+          <div class="space-y-2">
+            <h3 class="text-lg font-semibold mb-2">Buy Now</h3>
+            <a href="./Sunscreen_detail.html">
+                <button class="w-full bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold shadow-md">
+                    Buy Sunscreen
+                  </button>
+            </a>
+            <a href="./Moisterizer_detail.html">
+                <button class="w-full bg-yellow-400 mt-5 hover:bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold shadow-md">
+                    Buy Sunscreen
+                  </button>
+            </a>
+          </div>
+      
+        </div>
+        <div class="text-center text-xs text-gray-600 mt-6">&copy; 2025 DermRange. All rights reserved.</div>
+      </footer>
+      
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.slider-track');
+            const slides = document.querySelectorAll('.slider-slide');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            const dots = document.querySelectorAll('.slider-dot');
+
+            let currentIndex = 0;
+            const slideCount = slides.length;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlider();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    goToSlide(parseInt(dot.dataset.index));
+                });
+            });
+
+            // Auto-rotate (optional)
+            // let autoSlide = setInterval(nextSlide, 5000);
+
+            // Pause on hover (if auto-rotate is enabled)
+            // const slider = document.querySelector('.slider-container');
+            // slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            // slider.addEventListener('mouseleave', () => {
+            //     autoSlide = setInterval(nextSlide, 5000);
+            // });
+        });
+    </script>
+
+</body>
+
+</html>

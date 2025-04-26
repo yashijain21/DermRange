@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moisturizer Product Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-orange-50 text-gray-900">
+
+  <!-- Main Container -->
+  <div class="max-w-6xl mx-auto p-4 grid md:grid-cols-2 gap-8 mt-10">
+    
+    <!-- Image Gallery -->
+    <div class="top-4 self-start">
+      <!-- Desktop View -->
+      <div class="hidden md:flex gap-4">
+        <div class="flex flex-col gap-3 justify-start">
+          <!-- Thumbnails -->
+          <img id="thumb1" src="https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg" class="h-20 w-20 rounded-xl cursor-pointer border-2 ring-yellow-300  object-cover" onclick="changeImage('https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg')" />
+          <img id="thumb2" src="https://m.media-amazon.com/images/I/51djjWVDMoL._SX679_.jpg" class="h-20 w-20 rounded-xl cursor-pointer border-2 object-cover" onclick="changeImage('https://m.media-amazon.com/images/I/51djjWVDMoL._SX679_.jpg')" />
+          <img id="thumb3" src="https://m.media-amazon.com/images/I/51M-WQzV+bL._SX679_.jpg" class="h-20 w-20 rounded-xl cursor-pointer border-2 object-cover" onclick="changeImage('https://m.media-amazon.com/images/I/51M-WQzV+bL._SX679_.jpg')" />
+        </div>
+        <div class="flex-1 flex justify-center items-center">
+          <!-- Main Image -->
+          <img id="mainImage" src="https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg" class="rounded-2xl shadow-lg w-full max-w-[500px] max-h-[500px] object-contain" />
+        </div>
+      </div>
+
+      <!-- Mobile View -->
+      <div class="md:hidden">
+        <div class="relative flex justify-center items-center mb-4">
+          <button class="absolute left-2 p-2 shadow rounded-full z-10 bg-white">&#8592;</button>
+          <img id="mobileMainImage" src="https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg" class="rounded-2xl shadow-lg w-full max-w-full max-h-[400px] object-contain" />
+          <button class="absolute right-2 p-2 shadow rounded-full z-10 bg-white">&#8594;</button>
+        </div>
+        <div class="flex justify-center gap-2">
+          <img src="https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg" class="h-16 w-16 rounded-md border-2 border-yellow-500 overflow-hidden object-cover" onclick="changeMobileImage('https://m.media-amazon.com/images/I/51p6PgskdVL._SX679_.jpg')" />
+          <img src="https://m.media-amazon.com/images/I/51djjWVDMoL._SX679_.jpg" class="h-16 w-16 rounded-md border overflow-hidden object-cover" onclick="changeMobileImage('https://m.media-amazon.com/images/I/51djjWVDMoL._SX679_.jpg')" />
+          <img src="https://m.media-amazon.com/images/I/51M-WQzV+bL._SX679_.jpg" class="h-16 w-16 rounded-md border overflow-hidden object-cover" onclick="changeMobileImage('https://m.media-amazon.com/images/I/51M-WQzV+bL._SX679_.jpg')" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="space-y-6">
+      <h1 class="text-2xl md:text-3xl font-bold">Derm Range Moisturiser for Ultra-Dry, Mature Skin, 50g</h1>
+      <p class="text-gray-600 text-sm">Category: Skincare / Moisturiser</p>
+      <div class="text-2xl font-semibold text-green-600">₹419</div>
+      <div class="text-gray-500 line-through">₹499</div>
+      <div class="text-sm text-red-500">10% Off</div>
+      <div>
+        <p class="font-medium">Product Highlights:</p>
+        <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+          <li>Lightweight, non-greasy hydration</li>
+  <li>Strengthens skin's natural moisture barrier</li>
+  <li>Absorbs quickly without clogging pores</li>
+  <li>Suitable for all skin types, including sensitive skin</li>
+  <li>Enriched with natural ingredients</li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button onclick="openModal()"  class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-2 rounded-full font-semibold shadow-md">
+          Pay Now
+        </button>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold">Description:</h2>
+        <p class="text-sm text-gray-600">
+          HydraGlow Moisturizer Gel delivers intense hydration while maintaining your skin’s natural balance. Powered by aloe vera, hyaluronic acid, and nourishing botanical extracts, it deeply moisturizes without leaving any sticky residue. Perfect for daily use to keep skin soft, smooth, and refreshed in all seasons.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-xl max-w-lg w-full relative">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
+      <h2 class="text-2xl font-bold mb-4">Order Details</h2>
+      <form id="orderForm" class="space-y-4">
+        <input type="text" placeholder="Full Name" name="name" required class="w-full p-2 border rounded-md" />
+        <input type="email" placeholder="Email" name="email" required class="w-full p-2 border rounded-md" />
+        <input type="tel" placeholder="Phone Number" name="phone" required class="w-full p-2 border rounded-md" />
+        <textarea placeholder="Shipping Address" name="address" rows="2" required class="w-full p-2 border rounded-md"></textarea>
+        <div class="flex gap-4">
+          <input type="text" placeholder="City" name="city" required class="w-1/2 p-2 border rounded-md" />
+          <input type="text" placeholder="Pincode" name="pincode" required class="w-1/2 p-2 border rounded-md" />
+        </div>
+        <div name="Amount">Amount-Rs.419</div>
+        
+        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-full font-semibold shadow-md">
+          Proceed to Payment
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    // Function to change the main image for desktop
+    function changeImage(src) {
+      document.getElementById('mainImage').src = src;
+    }
+  
+    // Function to change the main image for mobile
+    function changeMobileImage(src) {
+      document.getElementById('mobileMainImage').src = src;
+    }
+  
+    // Open modal
+    function openModal() {
+      document.getElementById('orderModal').classList.remove('hidden');
+    }
+  
+    // Close modal
+    function closeModal() {
+      document.getElementById('orderModal').classList.add('hidden');
+    }
+  
+    // Handle form submission
+    document.getElementById('orderForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      // Gather form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+  
+      // Add amount manually (in paise for Razorpay: 71900 paisa = ₹719)
+      data.amount = 41900;  // 💥 Important: Razorpay amount must be in paisa!
+
+      // Check delivery validity
+      fetch(`http://localhost:8000/api/delivery/${data.pincode}`)
+        .then((response) => response.json())
+        .then((deliveryData) => {
+          if (deliveryData.available) {
+            createOrder(data);
+          } else {
+            alert('Sorry, delivery is not available in your area.');
+          }
+        })
+        .catch((err) => {
+          console.error('Error checking delivery:', err);
+          alert('Something went wrong while checking delivery.');
+        });
+    });
+  
+    // Create order API call
+    function createOrder(data) {
+      // Send order data to your backend
+      fetch('http://localhost:8000/api/create-order', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(data => openRazorpay(data))
+.catch(err => console.error('Fetch error:', err));}
+
+  
+    // Trigger Razorpay Payment
+function openRazorpay(data) {
+      var options = {
+        key: 'rzp_live_uK4Wfdq768Iz5L', // Replace with your Razorpay key
+        amount: data.amount,
+        currency: data.currency,
+        order_id: data.orderId,
+        handler: function (response) {
+          console.log('Payment successful', response);
+          alert('Payment Successful!');
+          // Send payment details to your backend for verification if needed
+        },
+        prefill: {
+          name: document.querySelector('input[name="name"]').value,
+          email: document.querySelector('input[name="email"]').value,
+          contact: document.querySelector('input[name="phone"]').value,
+        },
+        theme: {
+          color: "#F4C542", // Set the theme color for Razorpay
+        },
+      };
+  
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+  </script>
+  
+</body>
+</html>
